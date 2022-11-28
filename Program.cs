@@ -14,6 +14,7 @@ int maxLen = 3;
 //Число строк с длиннов не больше макмимального значения
 int countMaxLen = 0;
 
+Console.WriteLine("Введите все элементы или пустую строку для прекращения ввода");
 Console.Write($"Введите {i + 1} строку - ");
 string str = Console.ReadLine();
 
@@ -24,8 +25,8 @@ while (i < arrayLen)
     {
         if (i == 0)
         {
-            Console.Write("  Должен быть введен хотя бы 1 элемент  ");
-            Console.Write($"Введите {i + 1} строку");
+            Console.WriteLine("  Должен быть введен хотя бы 1 элемент  ");
+            Console.Write($"Введите {i + 1} строку - ");
             str = Console.ReadLine();
             continue;
         }
@@ -40,4 +41,23 @@ while (i < arrayLen)
 
     Console.Write($"Введите {i + 1} строку - ");
     str = Console.ReadLine();
+}
+//Если нет подходящих элементов прерываем выполнение
+if (countMaxLen == 0)
+{
+    Console.Write("  В массиве нет подходящих элементов  ");
+    return;
+}
+
+string[] B = new string[countMaxLen];
+Console.WriteLine($"\n Число строк c длинной <={maxLen} равно {countMaxLen}");
+
+int countElements=i;
+int j=0;
+for (i=0;i<countElements;i++){
+    if (A[i].Length<=maxLen){
+        B[j]=A[i];
+       Console.WriteLine(B[j]); 
+       j++;
+    }    
 }
